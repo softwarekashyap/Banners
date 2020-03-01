@@ -1,0 +1,30 @@
+.ks-banner-content {
+    float: left;
+    width: 100%;
+}
+.ks-banner-content .ks-description {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 33%;
+    z-index: 9;
+    margin: 0 auto;
+    width: 50%;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.ks-banner-content .banner-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15%;
+    z-index: 9;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+.ks-banner-content .banner-title h3 {
+    color: #ff0000;
+    font-size: 38px;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_Banners
+*/
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        
+        <update id="Kashyap_Extensions::ksextensions" title="Kashyap Banners" module="Magento_Backend" sortOrder="300" resource="Kashyap_Extensions::ksextensions"/>
+        
+        <add id="Kashyap_Banners::banners" title="Banners" module="Kashyap_Banners" sortOrder="50" parent="Kashyap_Extensions::ksextensions" action="banners/index/index" resource="Kashyap_Banners::banners"/>
+        
+    </menu>
+</config>

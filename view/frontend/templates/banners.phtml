@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_Banners
+*/
+
+// @codingStandardsIgnoreFile
+
+$banners = $block->getFrontBanners();
+?>
+<?php if($this->dataHelper->getEnable()) { ?>
+    <div id="ks-owl-banner" class="owl-carousel">
+    	 <?php  foreach($banners as $banner):  ?>
+        	<div class="ks-items">
+        	    <div class="ks-banner-content">
+                    <div class=banner-title>
+                        <?php if($banner->getLink() != ''): ?><a target="<?php echo $banner->getTarget() ?>" href="<?php echo $banner->getLink() ?>"><?php endif; ?>
+                            <h3><?php echo $banner->getTitle() ?></h3>
+                        <?php if($banner->getLink() != ''): ?></a><?php endif; ?>
+                    </div>
+                    <?php if($banner->getDescription()):?>
+                        <div class="ks-description">
+                            <span><?= $banner->getDescription()?></span>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <img src=<?php echo $block->getMediaDirectoryUrl().$banner->getBannerimage() ?> />
+            </div>
+    	<?php endforeach  ?>	
+    </div>
+    
+    <script>
+        require(['jquery', 'ks_owlcarousel'], function ($) {
+            $(document).ready(function(){	                   
+    			$("#ks-owl-banner").owlCarousel({
+                    items: 1,
+    			    loop: <?= $this->dataHelper->getLoop() ? 'true' : 'false' ?>,
+    			    nav: <?= $this->dataHelper->getNav() ? 'true' : 'false' ?>,
+    			    pagination : <?= $this->dataHelper->getPagination() ? 'true' : 'false' ?>,
+    			    autoplay : <?= $this->dataHelper->getAutoplay() ? 'true' : 'false' ?>,
+    			    autoplayHoverPause : <?= $this->dataHelper->getAutoplayHoverPause() ? 'true' : 'false' ?>,
+    			    margin: <?= $this->dataHelper->getMargin() ? $this->dataHelper->getMargin() : '10' ?>,
+    			    autoPlaySpeed : <?= $this->dataHelper->getAutoPlaySpeed() ? $this->dataHelper->getAutoPlaySpeed() : '200' ?>,
+    			    autoPlayTimeout : <?= $this->dataHelper->getAutoPlayTimeout() ? $this->dataHelper->getAutoPlayTimeout() : '5000' ?>,
+    			    <?php /* if($this->dataHelper->getEffect()) :?>
+    			    animateOut : <?= $this->dataHelper->getEffect() ? '"'. $this->dataHelper->getEffect() .'"' : '"slide"' ?>,
+    			    <?php endif; */ ?>
+    			    responsive:{
+    			        0:{
+    			            items:1
+    			        },
+    			        600:{
+    			            items:1
+    			        },
+    			        1000:{
+    			            items:1
+    			        }
+    			    }
+                });
+            });
+        });
+    </script>
+<?php } ?>

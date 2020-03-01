@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_Banners
+*/
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                
+                <resource id="Kashyap_Extensions::ksextensions" title="Kashyap Extensions">
+                    <resource id="Kashyap_Banners::banners" title="Banners" sortOrder="30" />                            
+                </resource>               
+                
+            </resource>
+        </resources>
+    </acl>
+</config>
