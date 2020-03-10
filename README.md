@@ -53,10 +53,6 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 
 ---
 
-![Alt text](Config.png?raw=true "Magento2 Banner Slider")
-
----
-
 ![Alt text](ManageBanners.png?raw=true "Magento2 Banner Slider")
 
 ---
@@ -70,4 +66,3 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 ---
 
 [![Alt text](https://www.kashyapsoftware.com/pub/media/logo/stores/1/ks_logo.png "kashyapsoftware.com")](https://www.kashyapsoftware.com/)
-
