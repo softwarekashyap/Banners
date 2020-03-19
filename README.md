@@ -10,11 +10,11 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 * Place all the files of the extension in your Magento 2 installation in the folder `app/code/Kashyap/Banners`
 * Enable the extension: `php bin/magento --clear-static-content module:enable Kashyap_Banners`
 * Upgrade db scheme: `php bin/magento setup:upgrade`
-* Deply Static Content: `php bin/magento setup:static-content:deploy -f` Developer Mode
-* Deply Static Content: `php bin/magento setup:static-content:deploy` Production Mode
+* Depl0y Static Content: `php bin/magento setup:static-content:deploy -f` Developer Mode
+* Deploy Static Content: `php bin/magento setup:static-content:deploy` Production Mode
 
 ## Configuration
-* Go to the `Stores -> Configurations -> Kashyap -> Kashyap Banner` where you can find various settings to configure the extension.
+- Go to the `Stores -> Configurations -> Kashyap -> Kashyap Banner` where you can find various settings to configure the extension.
 
 ---
 
@@ -22,34 +22,34 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 
 ---
 
-* if you want to call other pages using XML, Then copy and paste the code in your xml file.
+- if you want to call other pages using XML, Then copy and paste the code in your xml file.
 `<block class="Kashyap\Banners\Block\Banners" name="ks.banners.slider.home" template="Kashyap_Banners::banners.phtml" />`
 
-* if you want to call other pages staic block & CMS Pages, Then copy and paste the code in your Static blog and CMS Pages.
+- if you want to call other pages staic block & CMS Pages, Then copy and paste the code in your Static blog and CMS Pages.
 `{{block class="Kashyap\Banners\Block\Banners" template="Kashyap_Banners::banners.phtml"}}`
 
-* if you want to call other pages using .phtl, Then copy and paste the code in your Static blog and CMS Pages.
+- if you want to call other pages using .phtl, Then copy and paste the code in your Static blog and CMS Pages.
 `<?= $this->getLayout()->createBlock("Kashyap\Banners\Block\Banners")->setTemplate("Kashyap_Banners::banners.phtml")->toHtml(); ?>`
 
 ## Features
-* Admin able to add to banner images:
-	** Title
-	** Description
-	** Target
-	** URL
-* Admin able to set the sort order of the banner images.
-* Admin able to enable/disable the feature.
-* Admin able to control:
-	** Loop
-	** Next/Prev Buttons
-	** Dots, Auto Play
-	** Auto Play on Hover
-	** Margin
-	** Auto Play Speed
-	** Auto Play Timeout
-* Banner images are shown in an attractive banner with multiple configurations
-* Banners can be added to any page of the website
-* Multi-Store Supported
+- Admin able to add to banner images:
+	- Title
+	- Description
+	- Target
+	- URL
+- Admin able to set the sort order of the banner images.
+- Admin able to enable/disable the feature.
+- Admin able to control:
+	- Loop
+	- Next/Prev Buttons
+	- Dots, Auto Play
+	- Auto Play on Hover
+	- Margin
+	- Auto Play Speed
+	- Auto Play Timeout
+- Banner images are shown in an attractive banner with multiple configurations
+- Banners can be added to any page of the website
+- Multi-Store Supported
 
 ---
 
