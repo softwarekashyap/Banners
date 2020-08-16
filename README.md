@@ -1,6 +1,13 @@
 # Magento 2 Banner Slider
 ![Alt text](header.png?raw=true "Magento2 Banner Slider")
 
+---
+
+![Alt text](Banner4.png?raw=true "Magento2 Banner Slider")
+
+
+---
+
 Banner Slider extension helps you to upload multiple images on the homepage as a slider. This banner slider is built with Owl Carousel Library, so all features of the owl are inherited on this extension. You can also call banner sliders on all pages using the code snippet. Banner Slider allows you to upload High Definition images of your highest selling, most popular or newly arrived products with a sorting order. 
 
 With Banner Slider, you can also able to add or edit a custom link, title, target, description and/or images as per specific store using Magento 2's admin panel. Kashyap's Banner Slider will help you to easily target specific client or brand by showing to them on the inviting or important information on home and other pages.
@@ -57,7 +64,15 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 
 ---
 
-![Alt text](NewBanners.png?raw=true "Magento2 Banner Slider")
+![Alt text](YouTubeNewBanners.png?raw=true "Magento2 Banner Slider")
+
+---
+
+![Alt text](ImageNewBanners.png?raw=true "Magento2 Banner Slider")
+
+---
+
+![Alt text](EditYouTubeBanners.png?raw=true "Magento2 Banner Slider")
 
 ---
 
