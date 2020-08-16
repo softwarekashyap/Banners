@@ -14,19 +14,25 @@ $banners = $block->getFrontBanners();
     <div id="ks-owl-banner" class="owl-carousel">
     	 <?php  foreach($banners as $banner):  ?>
         	<div class="ks-items">
-        	    <div class="ks-banner-content">
-                    <div class=banner-title>
-                        <?php if($banner->getLink() != ''): ?><a target="<?php echo $banner->getTarget() ?>" href="<?php echo $banner->getLink() ?>"><?php endif; ?>
-                            <h3><?php echo $banner->getTitle() ?></h3>
-                        <?php if($banner->getLink() != ''): ?></a><?php endif; ?>
+        	    <?php if($banner->getTypes() == 0) : ?>
+	        	    <div class="ks-banner-content">
+		                    <div class=banner-title>
+		                        <?php if($banner->getLink() != ''): ?><a target="<?php echo $banner->getTarget() ?>" href="<?php echo $banner->getLink() ?>"><?php endif; ?>
+		                            <h3><?php echo $banner->getTitle() ?></h3>
+		                        <?php if($banner->getLink() != ''): ?></a><?php endif; ?>
+		                    </div>
+		                    <?php if($banner->getDescription()):?>
+		                        <div class="ks-description">
+		                            <span><?= $banner->getDescription()?></span>
+		                        </div>
+		                    <?php endif; ?>
+	                </div>
+	                <img src=<?php echo $block->getMediaDirectoryUrl().$banner->getBannerimage() ?> />
+                <?php else : ?>
+                    <div class="item-video" data-merge="<?= $banner->getBannersId() ?>">
+                        <iframe width="100%" height="1" src="<?= $banner->getVideoLink() ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
                     </div>
-                    <?php if($banner->getDescription()):?>
-                        <div class="ks-description">
-                            <span><?= $banner->getDescription()?></span>
-                        </div>
-                    <?php endif; ?>
-                </div>
-                <img src=<?php echo $block->getMediaDirectoryUrl().$banner->getBannerimage() ?> />
+                <?php endif; ?>
             </div>
     	<?php endforeach  ?>	
     </div>
