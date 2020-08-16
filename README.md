@@ -39,6 +39,7 @@ With Banner Slider, you can also able to add or edit a custom link, title, targe
 `<?= $this->getLayout()->createBlock("Kashyap\Banners\Block\Banners")->setTemplate("Kashyap_Banners::banners.phtml")->toHtml(); ?>`
 
 ## Features
+- Embed YouTube videos
 - Admin able to add to banner images:
 	- Title
 	- Description
