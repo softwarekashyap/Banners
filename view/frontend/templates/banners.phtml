@@ -30,7 +30,7 @@ $banners = $block->getFrontBanners();
 	                <img src=<?php echo $block->getMediaDirectoryUrl().$banner->getBannerimage() ?> />
                 <?php else : ?>
                     <div class="item-video" data-merge="<?= $banner->getBannersId() ?>">
-                        <iframe width="100%" height="1" src="<?= $banner->getVideoLink() ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                        <iframe width="100%" height="100%" src="<?= $banner->getVideoLink() ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 <?php endif; ?>
             </div>

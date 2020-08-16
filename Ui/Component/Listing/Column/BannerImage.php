@@ -60,19 +60,23 @@ class BannerImage extends Column
         if (isset($dataSource['data']['items'])) {
             $fieldName = $this->getData('name');
             foreach ($dataSource['data']['items'] as & $item) {
-                $url = '';
-                if ($item[$fieldName] != '') {
-                    $url = $this->storeManager->getStore()->getBaseUrl(
-                        \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
-                    ).$item[$fieldName];
+                if($item[$fieldName]){
+                    $url = '';
+                    if ($item[$fieldName] != '') {
+                        $url = $this->storeManager->getStore()->getBaseUrl(
+                            \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
+                        ).$item[$fieldName];
+                    }
+                    $item[$fieldName . '_src'] = $url;
+                    $item[$fieldName . '_alt'] = $item['title'] ? $item['title'] : '';
+                    $item[$fieldName . '_link'] = $this->urlBuilder->getUrl(
+                        'banners/index/edit',
+                        ['banners_id' => $item['banners_id']]
+                    );
+                    $item[$fieldName . '_orig_src'] = $url;
+                } else {
+                    $item[$fieldName] = "YouTube";
                 }
-                $item[$fieldName . '_src'] = $url;
-                $item[$fieldName . '_alt'] = $item['title'] ? $item['title'] : '';
-                $item[$fieldName . '_link'] = $this->urlBuilder->getUrl(
-                    'banners/index/edit',
-                    ['banners_id' => $item['banners_id']]
-                );
-                $item[$fieldName . '_orig_src'] = $url;
             }
         }
         

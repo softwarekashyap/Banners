@@ -252,13 +252,6 @@
         <column name="bannerimage" class="Kashyap\Banners\Ui\Component\Listing\Column\BannerImage">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <!--<item name="filter" xsi:type="string">text</item>-->
-                    <!--<item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>-->
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
                     <item name="label" xsi:type="string" translate="true">Banner</item>
                     <item name="sortOrder" xsi:type="number">20</item>
