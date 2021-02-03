@@ -8,15 +8,22 @@
 */
 -->
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    
+
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">   
+
     <head>
         <css src="Kashyap_Banners::css/banners.css" />
         <css src="Kashyap_Banners::css/owl.carousel.css" />
     </head>
-	<!-- <body>
-        <referenceContainer name="content">
-            <block template="Kashyap_Banners::banners.phtml" class="Kashya\Bpanners\Block\Banners" name="banners" />            
-        </referenceContainer> 
-    </body>-->
+    
+	<body>
+        <referenceContainer name="page.wrap">
+	        <referenceContainer name="content">
+	            <block class="Kashyap\Banners\Block\Banners" name="ks.banners.slider.home" template="Kashyap_Banners::banners.phtml" />
+	        </referenceContainer> 
+        </referenceContainer>
+    </body>
+
 </page>
+

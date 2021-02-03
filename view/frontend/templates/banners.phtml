@@ -7,8 +7,10 @@
 */
 
 // @codingStandardsIgnoreFile
+// Kashyap\Banners\Block\Banners
+$bannerId = $block->getBannerId();
+$banners = $block->getFrontBanners($bannerId);
 
-$banners = $block->getFrontBanners();
 ?>
 <?php if($this->dataHelper->getEnable()) { ?>
     <div id="ks-owl-banner" class="owl-carousel">
@@ -23,14 +25,14 @@ $banners = $block->getFrontBanners();
 		                    </div>
 		                    <?php if($banner->getDescription()):?>
 		                        <div class="ks-description">
-		                            <span><?= $banner->getDescription()?></span>
+		                            <span><?= /* @noEscape */ $block->getCmsFilterContent($banner->getDescription()) ?></span>
 		                        </div>
 		                    <?php endif; ?>
 	                </div>
 	                <img src=<?php echo $block->getMediaDirectoryUrl().$banner->getBannerimage() ?> />
                 <?php else : ?>
                     <div class="item-video" data-merge="<?= $banner->getBannersId() ?>">
-                        <iframe width="100%" height="100%" src="<?= $banner->getVideoLink() ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="100%" src="<?= $banner->getVideoLink() ?>?autoplay=<?= $this->dataHelper->getYouTubeAutoplay() ?>&mute=<?= $this->dataHelper->getYouTubeSound() ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 <?php endif; ?>
             </div>

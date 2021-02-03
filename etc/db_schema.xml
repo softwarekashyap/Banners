@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<!--
+
+/**
+ * @author Kashyap Team
+ * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+ * @package Kashyap_Banners
+*/
+
+-->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="ks_banners Table" engine="innodb" name="ks_banners" resource="default">
+		<column comment="Entity Id" identity="true" name="banners_id" nullable="false" padding="6" unsigned="true" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="banners_id"/>
+		</constraint>
+		<column length="255" name="title" nullable="true" xsi:type="varchar"/>
+		<column name="description" nullable="true" xsi:type="text"/>
+		<column length="255" name="store_views" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="customer_group" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="bannerimage" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="link" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="target" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="video_link" nullable="true" xsi:type="varchar"/>
+		<column name="sort_order" nullable="false" xsi:type="int"/>
+		<column name="types" nullable="false" xsi:type="int"/>
+		<column name="start_date" nullable="true" xsi:type="datetime" />
+		<column name="end_date" nullable="true" xsi:type="datetime" />
+		<column name="status" nullable="false" xsi:type="int"/>
+		<column name="created_time" nullable="true" xsi:type="datetime" on_update="false" default="CURRENT_TIMESTAMP"/>
+		<column name="update_time" nullable="true" xsi:type="datetime" on_update="true" default="CURRENT_TIMESTAMP"/>
+	</table>
+</schema>

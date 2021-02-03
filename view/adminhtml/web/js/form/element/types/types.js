@@ -5,9 +5,7 @@ define([
     'Magento_Ui/js/modal/modal'
 ], function (_, uiRegistry, select, modal) {
     'use strict';
-
     return select.extend({
-
         initialize: function () {
             this._super();
             this.fieldDepend(this.value());
@@ -18,9 +16,9 @@ define([
          * On value change handler.
          *
          * @param {String} value
-         */
+        */
+
         onUpdate: function (value) {
-            
             var field1 = uiRegistry.get('index = link');
             if (field1.visibleValue == value) {
                 field1.show();
@@ -35,12 +33,12 @@ define([
                 field2.hide();
             }
 
-            var field3 = uiRegistry.get('index = bannerimage');
+            /*var field3 = uiRegistry.get('index = bannerimage');
             if (field3.visibleValue == value) {
                 field3.show();
             } else {
                 field3.hide();
-            }
+            }*/
 
             var field4 = uiRegistry.get('index = video_link');
             if (field4.visibleValue == value) {
@@ -48,6 +46,8 @@ define([
             } else {
                 field4.hide();
             }
+
+
 
             var field5 = uiRegistry.get('index = description');
             if (field5.visibleValue == value) {
@@ -58,15 +58,17 @@ define([
 
             return this._super();
         },
+
         fieldDepend: function (value) {
             setTimeout(function () {
-
                 var field1 = uiRegistry.get('index = link');
                 if (field1.visibleValue == value) {
                     field1.show();
                 } else {
                     field1.hide();
                 }
+
+
 
                 var field2 = uiRegistry.get('index = target');
                 if (field2.visibleValue == value) {
@@ -75,12 +77,14 @@ define([
                     field2.hide();
                 }
 
-                var field3 = uiRegistry.get('index = bannerimage');
+                /*var field3 = uiRegistry.get('index = bannerimage');
                 if (field3.visibleValue == value) {
                     field3.show();
                 } else {
                     field3.hide();
-                }
+                }*/
+
+                //console.log(field3.visibleValue);
 
                 var field4 = uiRegistry.get('index = video_link');
                 if (field4.visibleValue == value) {
@@ -95,7 +99,11 @@ define([
                 } else {
                     field5.hide();
                 }
+
             });
+
         }
+
     });
+
 });

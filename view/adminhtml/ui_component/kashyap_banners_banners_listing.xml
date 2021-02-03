@@ -1,0 +1,235 @@
+<?xml version="1.0" ?>
+
+<!--
+	/**
+	 * @author Kashyap Team
+	 * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+	 * @package Kashyap_Banners
+	*/
+-->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">kashyap_banners_banners_listing.kashyap_banners_banners_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>kashyap_banners_banners_columns</spinner>
+		<deps>
+			<dep>kashyap_banners_banners_listing.kashyap_banners_banners_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add New Banners</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="kashyap_banners_banners_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+			<storageConfig>
+                <param name="indexField" xsi:type="string">banners_id</param>
+            </storageConfig>
+		</settings>
+		<aclResource>Kashyap_Banners::Banners</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="kashyap_banners_banners_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>banners_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+
+		<massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+	        <argument name="data" xsi:type="array">
+	            <item name="config" xsi:type="array">
+	                <item name="selectProvider" xsi:type="string">kashyap_banners_banners_listing.kashyap_banners_banners_listing.kashyap_banners_banners_columns.ids</item>
+	                <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+	                <item name="indexField" xsi:type="string">id</item>
+	            </item>
+	        </argument>
+	        <action name="delete">
+	            <argument name="data" xsi:type="array">
+	                <item name="config" xsi:type="array">
+	                    <item name="type" xsi:type="string">delete</item>
+	                    <item name="label" xsi:type="string" translate="true">Delete</item>
+	                    <item name="url" xsi:type="url" path="kashyap_banners/banners/massDelete">
+	                    </item>
+	                    <item name="confirm" xsi:type="array">
+	                        <item name="title" xsi:type="string" translate="true">Delete Banners</item>
+	                        <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected banners?</item>
+	                    </item>
+	                </item>
+	            </argument>
+	        </action><action name="active">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">enable</item>
+                        <item name="label" xsi:type="string" translate="true">Active</item>
+                        <item name="url" xsi:type="url" path="kashyap_banners/banners/massStatus/status/1"/>
+                    </item>
+                    <item name="confirm" xsi:type="array">
+                        <item name="title" xsi:type="string" translate="true">Active Banners</item>
+                        <item name="message" xsi:type="string" translate="true">Are you sure you wan't to active selected banners?</item>
+                    </item>
+                </argument>
+            </action>
+            <action name="inactive">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">disable</item>
+                        <item name="label" xsi:type="string" translate="true">Inactive</item>
+                        <item name="url" xsi:type="url" path="kashyap_banners/banners/massStatus/status/0"/>
+                    </item>
+                    <item name="confirm" xsi:type="array">
+                        <item name="title" xsi:type="string" translate="true">Inactive Banners</item>
+                        <item name="message" xsi:type="string" translate="true">Are you sure you wan't to inactive selected banners?</item>
+                    </item>
+                </argument>
+            </action>            
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">edit</item>
+                        <item name="label" xsi:type="string" translate="true">Edit</item>
+                        <item name="callback" xsi:type="array">
+                            <item name="provider" xsi:type="string">kashyap_banners_banners_listing.kashyap_banners_banners_listing.kashyap_banners_banners_columns_editor</item>
+                            <item name="target" xsi:type="string">editSelected</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+	    </massaction>
+	    
+	</listingToolbar>
+	<columns name="kashyap_banners_banners_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">kashyap_banners_banners_listing.kashyap_banners_banners_listing.kashyap_banners_banners_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">banners_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="kashyap_banners/Banners/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">kashyap_banners_banners_listing.kashyap_banners_banners_listing.kashyap_banners_banners_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>banners_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="banners_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+
+		<column name="title">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Title</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">true</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+
+		<column name="bannerimage" class="Kashyap\Banners\Ui\Component\Listing\Column\Thumbnail">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="altField" xsi:type="string">bannerimage</item>
+                    <item name="has_preview" xsi:type="string">1</item>
+                    <item name="label" xsi:type="string" translate="true">Banners</item>
+                </item>
+            </argument>
+        </column>
+
+		<!--<column name="link">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\Banners\Ui\Component\Listing\Column\Link</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">text</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Links</item>
+                </item>
+            </argument>
+        </column>-->
+
+		<column name="types">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\Banners\Ui\Component\Listing\Column\Types</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Parent Option</item>
+                </item>
+            </argument>
+        </column>
+        
+		<column name="status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\Banners\Ui\Component\Listing\Column\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                </item>
+            </argument>
+        </column>
+
+		<column name="update_time">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Update Time</label>
+			</settings>
+		</column>
+
+		<column name="created_time">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Created Time</label>
+			</settings>
+		</column>
+
+		<actionsColumn class="Kashyap\Banners\Ui\Component\Listing\Column\BannersActions" name="actions">
+			<settings>
+				<indexField>banners_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

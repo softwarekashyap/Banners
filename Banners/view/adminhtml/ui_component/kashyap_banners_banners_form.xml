@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+
+<!--
+	/**
+	 * @author Kashyap Team
+	 * @copyright Copyright (c) 2018 Kashyap (http://kashyapsoftware.com/)
+	 * @package Kashyap_Banners
+	*/
+-->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">kashyap_banners_banners_form.banners_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button class="Kashyap\Banners\Block\Adminhtml\Banners\Edit\BackButton" name="back"/>
+			<button class="Kashyap\Banners\Block\Adminhtml\Banners\Edit\DeleteButton" name="delete"/>
+			<button class="Kashyap\Banners\Block\Adminhtml\Banners\Edit\SaveButton" name="save"/>
+			<button class="Kashyap\Banners\Block\Adminhtml\Banners\Edit\SaveAndContinueButton" name="save_and_continue"/>
+		</buttons>
+		<namespace>kashyap_banners_banners_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>kashyap_banners_banners_form.banners_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="banners_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider class="Kashyap\Banners\Model\Banners\DataProvider" name="banners_form_data_source">
+			<settings>
+				<requestFieldName>banners_id</requestFieldName>
+				<primaryFieldName>banners_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field formElement="input" name="title" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Banners</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Title</label>
+				<dataScope>title</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+        <field name="description" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="class" xsi:type="string">\Magento\Ui\Component\Form\Element\Wysiwyg</item>
+                    <item name="formElement" xsi:type="string">wysiwyg</item>
+                    <item name="template" xsi:type="string">ui/form/field</item>
+                    <item name="source" xsi:type="string">Banners</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                    <item name="rows" xsi:type="number">4</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>                    
+                    <item name="visibleValue" xsi:type="string">0</item>
+                </item>
+            </argument>
+        </field>
+
+		<field formElement="input" name="store_views" sortOrder="30">
+			<argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Cms\Ui\Component\Listing\Column\Cms\Options</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Store Views</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="dataScope" xsi:type="string">store_views</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+		</field>
+
+        <field name="types" sortOrder="32">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\Banners\Ui\Component\Listing\Column\Types</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Parent Option</item>
+                    <item name="component" xsi:type="string">Kashyap_Banners/js/form/element/types/types</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">banners</item>
+                    <item name="dataScope" xsi:type="string">types</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+		<field name="bannerimage" sortOrder="40">
+		    <argument name="data" xsi:type="array">
+		        <item name="config" xsi:type="array">
+		            <item name="dataType" xsi:type="string">string</item>
+		            <item name="source" xsi:type="string">Banners</item>
+		            <item name="label" xsi:type="string" translate="true">Banner Image</item>
+		            <item name="visible" xsi:type="boolean">true</item>
+		            <item name="formElement" xsi:type="string">fileUploader</item>
+		            <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+		            <item name="previewTmpl" xsi:type="string">Kashyap_Banners/image-preview</item>
+		            <item name="required" xsi:type="boolean">true</item>
+                    <item name="visibleValue" xsi:type="string">0</item>
+		            <item name="uploaderConfig" xsi:type="array">
+		                <item name="url" xsi:type="url" path="kashyap_banners/index/uploader"/>
+		            </item>
+		        </item>
+		    </argument>
+		    <settings>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+        <field name="video_link" sortOrder="42">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="readonly" xsi:type="boolean">true</item> 
+                    <item name="label" xsi:type="string" translate="true">Video Link</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">Banners</item>
+                    <item name="dataScope" xsi:type="string">video_link</item>
+                    <item name="visibleValue" xsi:type="string">1</item>
+                    <item name="notice" xsi:type="string" translate="true">URL should be embed</item>
+                </item>
+            </argument>
+		    <settings>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+					<rule name="validate-url" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+        </field>
+
+		<field formElement="input" name="link" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Banners</item>
+                	<item name="visibleValue" xsi:type="string">0</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Link</label>
+				<dataScope>link</dataScope>
+				<validation>
+					<rule name="validate-url" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="target" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Banners</item>
+                	<item name="visibleValue" xsi:type="string">0</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Target</label>
+				<dataScope>target</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="sort_order" sortOrder="70">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Banners</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Sort Order</label>
+				<dataScope>sort_order</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+
+		<field formElement="input" name="status" sortOrder="70">
+			<argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kashyap\Banners\Ui\Component\Listing\Column\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Status : </item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+		</field>
+
+	</fieldset>
+</form>
